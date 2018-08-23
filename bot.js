@@ -1,18 +1,18 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const client = new Discord.Client();
 
 
-bot.on('ready', () => {
+client.on('ready', () => {
     bot.user.setPresence({ game: { name: `Estou em desenvolvimento! 'https://www.youtube.com/yRecky'} });
     console.log('Logado');
 });
-bot.on('message', message => {
+client.on('message', message => {
     let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
 let args = message.content.split(" ").slice(1);
 if(cmd === 'x!anuncio'){
     const args = message.content.split(" ").slice(1);
-    const prefix = '/'
+    const prefix = 'x!'
     message.delete()
     if (!args.slice(0).join(' ')) return message.channel.send('test')
     message.channel.send({embed:{
@@ -25,7 +25,7 @@ if(cmd === 'x!anuncio'){
     )
 }
 });
-bot.on('message', message => {
+client.on('message', message => {
     let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
 let args = message.content.split(" ").slice(1)
@@ -41,7 +41,7 @@ let args = message.content.split(" ").slice(1)
             message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
       }
 });
-bot.on('message', message => {
+client.on('message', message => {
     if (message.content === 'Oi') {
     	message.reply('Olá, tudo bem ?');
     }
@@ -61,7 +61,7 @@ bot.on('message', message => {
         message.channel.send('Em desenvolvimento!');
     }
 });
-bot.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
  
   let canal = member.guild.channels.find(`name`, "📥entrada");
@@ -69,15 +69,11 @@ bot.on('guildMemberAdd', member => {
 
   var embed = new Discord.RichEmbed()
   .setColor(randomColor)
-  .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial da Rede Ghost!**
-  » **IP:** ghostminigames.com
-  » **IP:** ghostsurvival.com
-  » **Twitter:** https://twitter.com/ServidoresGhost
-  » **Loja:** https://loja.redeghost.com/
-  » **Site:** https://www.redeghost.com/`)
+  .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial do JumboBR`)
   .setThumbnail(member.user.displayAvatarURL)
   canal.send({embed : embed})
 });
 
+
 // THIS  MUST  BE  THIS  WAY
-bot.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
