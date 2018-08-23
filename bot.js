@@ -13,12 +13,7 @@ bot.on('guildMemberAdd', member => {
 
   var embed = new Discord.RichEmbed()
   .setColor(randomColor)
-  .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial da Rede Ghost!**
-  » **IP:** ghostminigames.com
-  » **IP:** ghostsurvival.com
-  » **Twitter:** https://twitter.com/ServidoresGhost
-  » **Loja:** https://loja.redeghost.com/
-  » **Site:** https://www.redeghost.com/`)
+  .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial do JumboBR**`)
   .setThumbnail(member.user.displayAvatarURL)
   canal.send({embed : embed})
 });
